@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML 计算器</title>
+  <style>
+    :root { --bg:#0f172a; --panel:#111827; --btn:#1f2937; --btn2:#334155; --txt:#e5e7eb; --muted:#9ca3af; --accent:#60a5fa; --danger:#f87171; }
+    * { box-sizing: border-box; }
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center;
+      background: radial-gradient(1000px 500px at 50% 20%, #1f2a44 0%, var(--bg) 45%, #0b1022 100%);
+      color:var(--txt); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .wrap{
+      width:min(420px, 92vw);
+      background: rgba(17,24,39,.86);
+      border:1px solid rgba(148,163,184,.18);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      overflow:hidden;
+    }
+    .top{
+      padding:16px 16px 10px;
+      border-bottom:1px solid rgba(148,163,184,.12);
+    }
+    .brand{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:10px;
+    }
+    .brand .hint{ color:var(--muted); font-size:12px; line-height:1.4; }
+    .screen{
+      background: rgba(2,6,23,.55);
+      border:1px solid rgba(148,163,184,.18);
+      border-radius: 14px;
+      padding:12px 12px 10px;
+    }
+    .expr{
+      width:100%;
+      font-size:18px;
+      color:var(--txt);
+      background:transparent;
+      border:0;
+      outline:none;
+      text-align:right;
+      caret-color: var(--accent);
+    }
+    .result{
+      margin-top:6px;
+      text-align:right;
+      font-size:24px;
+      font-weight:650;
+      letter-spacing:.2px;
+      min-height: 32px;
+      color: #f8fafc;
+    }
+
+    .pad{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      padding:14px;
+    }
+    button{
+      appearance:none;
+      border:1px solid rgba(148,163,184,.18);
+      background: linear-gradient(180deg, rgba(51,65,85,.55), rgba(31,41,55,.55));
+      color:var(--txt);
+      border-radius: 14px;
+      padding:14px 10px;
+      font-size:16px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .05s ease, border-color .12s ease, filter .12s ease;
+    }
+    button:hover{ border-color: rgba(96,165,250,.45); filter: brightness(1.05); }
+    button:active{ transform: translateY(1px); }
+
+    .op{ background: linear-gradient(180deg, rgba(96,165,250,.22), rgba(31,41,55,.55)); }
+    .danger{ background: linear-gradient(180deg, rgba(248,113,113,.22), rgba(31,41,55,.55)); }
+    .eq{
+      background: linear-gradient(180deg, rgba(96,165,250,.55), rgba(37,99,235,.45));
+      border-color: rgba(96,165,250,.55);
+      font-weight: 650;
+    }
+    .wide{ grid-column: span 2; }
+    .foot{
+      padding:0 14px 14px;
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+    }
+    .toast{
+      height: 18px;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--danger);
+      text-align:right;
+      opacity:0;
+      transition: opacity .15s ease;
+    }
+    .toast.show{ opacity:1; }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="application" aria-label="计算器">
+    <div class="top">
+      <div class="brand">
+        <div style="font-weight:700;">计算器</div>
+        <div class="hint">回车=计算 · Esc=清空 · Backspace=退格</div>
+      </div>
+      <div class="screen">
+        <input id="expr" class="expr" inputmode="text" autocomplete="off" spellcheck="false"
+               placeholder="请输入表达式，比如 (12+3)*4/5" aria-label="表达式输入框" />
+        <div id="toast" class="toast"></div>
+        <div id="result" class="result" aria-label="计算结果">0</div>
+      </div>
+    </div>
+
+    <div class="pad" aria-label="按键区">
+      <button class="danger" data-act="clear">C</button>
+      <button class="danger" data-act="back">⌫</button>
+      <button class="op" data-val="(">(</button>
+      <button class="op" data-val=")">)</button>
+
+      <button data-val="7">7</button>
+      <button data-val="8">8</button>
+      <button data-val="9">9</button>
+      <button class="op" data-val="/">÷</button>
+
+      <button data-val="4">4</button>
+      <button data-val="5">5</button>
+      <button data-val="6">6</button>
+      <button class="op" data-val="*">×</button>
+
+      <button data-val="1">1</button>
+      <button data-val="2">2</button>
+      <button data-val="3">3</button>
+      <button class="op" data-val="-">−</button>
+
+      <button class="wide" data-val="0">0</button>
+      <button data-val=".">.</button>
+      <button class="op" data-val="+">+</button>
+
+      <button class="wide eq" data-act="eval">=</button>
+      <button class="op wide" data-act="ans">Ans</button>
+    </div>
+
+    <div class="foot">支持 + − × ÷、括号、小数；也支持键盘直接输入。</div>
+  </div>
+
+  <script>
+    const $expr = document.getElementById("expr");
+    const $result = document.getElementById("result");
+    const $toast = document.getElementById("toast");
+
+    let lastAns = 0;
+
+    function showError(msg){
+      $toast.textContent = msg;
+      $toast.classList.add("show");
+      setTimeout(() => $toast.classList.remove("show"), 1500);
+    }
+
+    function sanitize(raw){
+      // 允许数字、空格、小数点、括号、加减乘除
+      // 同时把中文/展示符号替换成可计算符号
+      return raw
+        .replace(/[×xX]/g, "*")
+        .replace(/[÷]/g, "/")
+        .replace(/[−–—]/g, "-")
+        .replace(/，/g, ",")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function safeEval(expr){
+      const s = sanitize(expr);
+
+      if(!s) return 0;
+
+      // 基本白名单校验：只允许这些字符
+      if(!/^[0-9+\-*/().,\s]+$/.test(s)){
+        throw new Error("只支持数字、运算符和括号");
+      }
+
+      // 防止一些奇怪的连写，比如 "**"、"//"、".." 等（这里做轻量拦截）
+      if(/(\*\*|\/\/|\.\.|,,)/.test(s)){
+        throw new Error("表达式格式不太对");
+      }
+
+      // 用 Function 计算（已做白名单过滤）
+      // eslint-disable-next-line no-new-func
+      const val = Function("return (" + s + ")")();
+
+      if(typeof val !== "number" || !Number.isFinite(val)){
+        throw new Error("结果无效");
+      }
+
+      return val;
+    }
+
+    function setExprWithCaret(newValue){
+      $expr.value = newValue;
+      $expr.focus();
+      $expr.setSelectionRange($expr.value.length, $expr.value.length);
+    }
+
+    function appendValue(v){
+      const start = $expr.selectionStart ?? $expr.value.length;
+      const end = $expr.selectionEnd ?? $expr.value.length;
+      const before = $expr.value.slice(0, start);
+      const after = $expr.value.slice(end);
+
+      const next = before + v + after;
+      $expr.value = next;
+
+      const caret = (before + v).length;
+      $expr.focus();
+      $expr.setSelectionRange(caret, caret);
+    }
+
+    function backspace(){
+      const start = $expr.selectionStart ?? $expr.value.length;
+      const end = $expr.selectionEnd ?? $expr.value.length;
+
+      if(start !== end){
+        // 有选中范围，直接删除
+        const next = $expr.value.slice(0, start) + $expr.value.slice(end);
+        $expr.value = next;
+        $expr.setSelectionRange(start, start);
+        return;
+      }
+      if(start === 0) return;
+
+      const next = $expr.value.slice(0, start - 1) + $expr.value.slice(start);
+      $expr.value = next;
+      $expr.setSelectionRange(start - 1, start - 1);
+    }
+
+    function clearAll(){
+      $expr.value = "";
+      $result.textContent = "0";
+      lastAns = 0;
+      $expr.focus();
+    }
+
+    function doEval(){
+      try{
+        const val = safeEval($expr.value);
+        lastAns = val;
+        // 控制显示精度，避免 0.30000000004
+        const pretty = Number.isInteger(val) ? String(val) : String(parseFloat(val.toFixed(12)));
+        $result.textContent = pretty;
+      }catch(e){
+        showError(e.message || "计算失败");
+      }
+    }
+
+    document.querySelector(".pad").addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if(!btn) return;
+
+      const act = btn.dataset.act;
+      const val = btn.dataset.val;
+
+      if(act === "clear") return clearAll();
+      if(act === "back") return backspace();
+      if(act === "eval") return doEval();
+      if(act === "ans") return appendValue(String(lastAns));
+
+      if(typeof val === "string") appendValue(val);
+    });
+
+    // 键盘支持
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Enter"){
+        e.preventDefault();
+        doEval();
+        return;
+      }
+      if(e.key === "Escape"){
+        e.preventDefault();
+        clearAll();
+        return;
+      }
+      if(e.key === "Backspace"){
+        // 让输入框内退格更顺滑
+        if(document.activeElement === $expr){
+          e.preventDefault();
+          backspace();
+        }
+        return;
+      }
+
+      // 允许直接输入的字符（拦一下中文输入法候选等）
+      const allowed = "0123456789+-*/(). ";
+      if(document.activeElement !== $expr) return;
+      if(e.key.length === 1 && !allowed.includes(e.key)){
+        // 放行中文输入法组合键等
+        if(e.isComposing) return;
+        e.preventDefault();
+      }
+    });
+
+    // 初始聚焦
+    $expr.focus();
+  </script>
+</body>
+</html>
