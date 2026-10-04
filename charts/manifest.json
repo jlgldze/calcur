@@ -1,0 +1,224 @@
+{
+  "published_date": "2026-10-04",
+  "update_mode": "已生成图表的静态快照",
+  "groups": [
+    {
+      "id": "etf-b",
+      "title": "14只ETF · B策略趋势",
+      "data_through": "2026-09-28",
+      "securities": [
+        {
+          "code": "512480.SH",
+          "name": "半导体ETF国联安"
+        },
+        {
+          "code": "159819.SZ",
+          "name": "人工智能ETF易方达"
+        },
+        {
+          "code": "515220.SH",
+          "name": "煤炭ETF国泰"
+        },
+        {
+          "code": "511380.SH",
+          "name": "可转债ETF博时"
+        },
+        {
+          "code": "512690.SH",
+          "name": "酒ETF鹏华"
+        },
+        {
+          "code": "513180.SH",
+          "name": "恒生科技ETF华夏"
+        },
+        {
+          "code": "510300.SH",
+          "name": "沪深300ETF华泰柏瑞"
+        },
+        {
+          "code": "512800.SH",
+          "name": "银行ETF华宝"
+        },
+        {
+          "code": "518880.SH",
+          "name": "黄金ETF华安"
+        },
+        {
+          "code": "159992.SZ",
+          "name": "创新药ETF银华"
+        },
+        {
+          "code": "512880.SH",
+          "name": "证券ETF国泰"
+        },
+        {
+          "code": "512400.SH",
+          "name": "有色金属ETF南方"
+        },
+        {
+          "code": "159920.SZ",
+          "name": "恒生指数ETF华夏"
+        },
+        {
+          "code": "159865.SZ",
+          "name": "养殖ETF国泰"
+        }
+      ],
+      "image": "assets/etf14-b-20260928.png"
+    },
+    {
+      "id": "housing-b",
+      "title": "9只保障房REIT · B策略趋势",
+      "data_through": "2026-09-30",
+      "securities": [
+        {
+          "code": "180501.SZ",
+          "name": "深圳安居"
+        },
+        {
+          "code": "508068.SH",
+          "name": "北京保障房"
+        },
+        {
+          "code": "508058.SH",
+          "name": "厦门安居"
+        },
+        {
+          "code": "508077.SH",
+          "name": "华润有巢"
+        },
+        {
+          "code": "508031.SH",
+          "name": "城投宽庭"
+        },
+        {
+          "code": "180502.SZ",
+          "name": "蛇口租赁住房"
+        },
+        {
+          "code": "508055.SH",
+          "name": "上海地产租赁住房"
+        },
+        {
+          "code": "508085.SH",
+          "name": "苏州恒泰租赁住房"
+        },
+        {
+          "code": "180503.SZ",
+          "name": "北京昌保租赁住房"
+        }
+      ],
+      "image": "assets/housing9-b-20260930.png"
+    },
+    {
+      "id": "housing-spread",
+      "title": "保障房REIT · 利差趋势",
+      "data_through": "2026-09-30",
+      "securities": [
+        {
+          "code": "508068.SH",
+          "name": "北京保障房",
+          "price_basis": "hfq",
+          "treasury_years": 10,
+          "rolling_sessions": 120,
+          "image": "assets/spread-508068-sh-20260930.png"
+        },
+        {
+          "code": "180501.SZ",
+          "name": "深圳安居",
+          "price_basis": "hfq",
+          "treasury_years": 10,
+          "rolling_sessions": 120,
+          "image": "assets/spread-180501-sz-20260930.png"
+        },
+        {
+          "code": "508077.SH",
+          "name": "华润有巢",
+          "price_basis": "hfq",
+          "treasury_years": 10,
+          "rolling_sessions": 60,
+          "image": "assets/spread-508077-sh-20260930.png"
+        },
+        {
+          "code": "180502.SZ",
+          "name": "招商蛇口",
+          "price_basis": "raw",
+          "treasury_years": 30,
+          "rolling_sessions": 90,
+          "image": "assets/spread-180502-sz-20260930.png"
+        },
+        {
+          "code": "508058.SH",
+          "name": "厦门安居",
+          "price_basis": "hfq",
+          "treasury_years": 10,
+          "rolling_sessions": 60,
+          "image": "assets/spread-508058-sh-20260930.png"
+        },
+        {
+          "code": "508085.SH",
+          "name": "苏州恒泰",
+          "price_basis": "hfq",
+          "treasury_years": 10,
+          "rolling_sessions": 120,
+          "image": "assets/spread-508085-sh-20260930.png"
+        },
+        {
+          "code": "508031.SH",
+          "name": "城投宽庭",
+          "price_basis": "hfq",
+          "treasury_years": 10,
+          "rolling_sessions": 120,
+          "image": "assets/spread-508031-sh-20260930.png"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/etf14-b-20260928.png",
+      "bytes": 2100604,
+      "sha256": "4675474e3bf4f545f30d41d721c9ecabf82691099a27b0003b7e40aedae99a5d"
+    },
+    {
+      "path": "assets/housing9-b-20260930.png",
+      "bytes": 1449299,
+      "sha256": "6f8640332536bf5790e2699be9bb600594d55432812a0475acb6161851fa88c3"
+    },
+    {
+      "path": "assets/spread-508068-sh-20260930.png",
+      "bytes": 547465,
+      "sha256": "0a30398b35cf720230ed64dc7a1a5e47f46e78a64fc1766c8862495fd7c5bfe1"
+    },
+    {
+      "path": "assets/spread-180501-sz-20260930.png",
+      "bytes": 529449,
+      "sha256": "469d674bd9642de85613508477a10fb202c7424cd2c372f11f19113e445e4e7e"
+    },
+    {
+      "path": "assets/spread-508077-sh-20260930.png",
+      "bytes": 502409,
+      "sha256": "b2f1617b6dcc7645cc2b1d757beade5fc6f805183b3487687e39e860f86aa0c9"
+    },
+    {
+      "path": "assets/spread-180502-sz-20260930.png",
+      "bytes": 496556,
+      "sha256": "2a3442492e59a845608733c23daf13d84428621f278d22ae94b5726d987efebd"
+    },
+    {
+      "path": "assets/spread-508058-sh-20260930.png",
+      "bytes": 541393,
+      "sha256": "1776b63d6fa2ec3c6d6adc7e64716d577ffb6a8d48f4b63301dd1b2629069182"
+    },
+    {
+      "path": "assets/spread-508085-sh-20260930.png",
+      "bytes": 408534,
+      "sha256": "37289f88c92f7a0db5f2103e5b3deef527661581e469073e91eb555319f502de"
+    },
+    {
+      "path": "assets/spread-508031-sh-20260930.png",
+      "bytes": 513547,
+      "sha256": "64c5efeac38507135c7d94d100e20502d66fd083d9401dd08f08d36f7f814b67"
+    }
+  ]
+}
