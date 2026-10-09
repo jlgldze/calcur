@@ -25,13 +25,13 @@
 
 ## 趋势图表
 
-[在线图表中心](https://jlgldze.github.io/calcur/charts/)包含三组图表，数据均截至 2026-10-08：
+[在线图表中心](https://jlgldze.github.io/calcur/charts/)包含三组图表，数据均截至 2026-10-09：
 
 - [14只ETF B策略](https://jlgldze.github.io/calcur/charts/etf-b.html)
 - [9只保障房REIT B策略](https://jlgldze.github.io/calcur/charts/housing-b.html)
 - [保障房REIT利差](https://jlgldze.github.io/calcur/charts/housing-spread.html)：7张图
 
-北京时间每个沪深交易日18:30启动本地数据更新，完成出图、校验后发布；休市跳过，失败保留上一版。最近成功数据更新：2026-10-08T19:00:32+08:00。
+北京时间每个沪深交易日18:30启动本地数据更新，完成出图、校验后发布；休市跳过，失败保留上一版。最近成功数据更新：2026-10-09T18:39:58+08:00。
 
 支持手机布局、适应宽度、2倍及3倍缩放、原图下载；计算器首页保留图表入口。`charts/manifest.json`记录实际数据日期、更新时间、标的、图片大小及SHA-256。
 
