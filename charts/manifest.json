@@ -1,7 +1,7 @@
 {
-  "published_date": "2026-11-17",
-  "data_updated_at": "2026-11-17T18:38:44+08:00",
-  "target_trading_day": "2026-11-17",
+  "published_date": "2026-11-18",
+  "data_updated_at": "2026-11-18T18:40:41+08:00",
+  "target_trading_day": "2026-11-18",
   "update_mode": "交易日18:30启动数据更新，校验后发布",
   "schedule": {
     "timezone": "Asia/Shanghai",
@@ -9,12 +9,12 @@
     "calendar": "SSE/SZSE trading days",
     "publication": "after data and validation complete"
   },
-  "validation_sha256": "1911d033fcadfed9d0daddf2edbb9cff3b4c8c411a36c1396e89621de6afa2a3",
+  "validation_sha256": "c6ff20e940404ee9c613bb3181c907d87561d2184e226b914ebc25fec8934bfb",
   "groups": [
     {
       "id": "etf-b",
       "title": "14只ETF · B策略趋势",
-      "data_through": "2026-11-17",
+      "data_through": "2026-11-18",
       "securities": [
         {
           "code": "512480.SH",
@@ -73,12 +73,12 @@
           "name": "养殖ETF国泰"
         }
       ],
-      "image": "assets/etf14-b-20261117-bc7bd322.png"
+      "image": "assets/etf14-b-20261118-24dd83ee.png"
     },
     {
       "id": "housing-b",
       "title": "9只保障房REIT · B策略趋势",
-      "data_through": "2026-11-17",
+      "data_through": "2026-11-18",
       "securities": [
         {
           "code": "180501.SZ",
@@ -117,12 +117,12 @@
           "name": "北京昌保租赁住房"
         }
       ],
-      "image": "assets/housing9-b-20261117-88406c78.png"
+      "image": "assets/housing9-b-20261118-d12f5470.png"
     },
     {
       "id": "housing-spread",
       "title": "保障房REIT · 利差趋势",
-      "data_through": "2026-11-17",
+      "data_through": "2026-11-18",
       "securities": [
         {
           "code": "508068.SH",
@@ -130,7 +130,7 @@
           "price_basis": "hfq",
           "treasury_years": 10,
           "rolling_sessions": 120,
-          "image": "assets/spread-508068-sh-20261117-d93b3b1e.png"
+          "image": "assets/spread-508068-sh-20261118-1cb243d6.png"
         },
         {
           "code": "180501.SZ",
@@ -138,7 +138,7 @@
           "price_basis": "hfq",
           "treasury_years": 10,
           "rolling_sessions": 120,
-          "image": "assets/spread-180501-sz-20261117-5643d436.png"
+          "image": "assets/spread-180501-sz-20261118-fea3f65e.png"
         },
         {
           "code": "508077.SH",
@@ -146,7 +146,7 @@
           "price_basis": "hfq",
           "treasury_years": 10,
           "rolling_sessions": 60,
-          "image": "assets/spread-508077-sh-20261117-4e5607e7.png"
+          "image": "assets/spread-508077-sh-20261118-b00dd1cf.png"
         },
         {
           "code": "180502.SZ",
@@ -154,7 +154,7 @@
           "price_basis": "raw",
           "treasury_years": 30,
           "rolling_sessions": 90,
-          "image": "assets/spread-180502-sz-20261117-4fb3e5e4.png"
+          "image": "assets/spread-180502-sz-20261118-63810bd6.png"
         },
         {
           "code": "508058.SH",
@@ -162,7 +162,7 @@
           "price_basis": "hfq",
           "treasury_years": 10,
           "rolling_sessions": 60,
-          "image": "assets/spread-508058-sh-20261117-42817391.png"
+          "image": "assets/spread-508058-sh-20261118-bd6e7816.png"
         },
         {
           "code": "508085.SH",
@@ -170,7 +170,7 @@
           "price_basis": "hfq",
           "treasury_years": 10,
           "rolling_sessions": 120,
-          "image": "assets/spread-508085-sh-20261117-403db68a.png"
+          "image": "assets/spread-508085-sh-20261118-fe07b5ef.png"
         },
         {
           "code": "508031.SH",
@@ -178,56 +178,56 @@
           "price_basis": "hfq",
           "treasury_years": 10,
           "rolling_sessions": 120,
-          "image": "assets/spread-508031-sh-20261117-8212a72f.png"
+          "image": "assets/spread-508031-sh-20261118-ede795b3.png"
         }
       ]
     }
   ],
   "files": [
     {
-      "path": "assets/etf14-b-20261117-bc7bd322.png",
-      "bytes": 2103872,
-      "sha256": "bc7bd322b323e882c31ce6ba8897f67eef1fb5c49abbf420bcae411d20c2c458"
+      "path": "assets/etf14-b-20261118-24dd83ee.png",
+      "bytes": 2104337,
+      "sha256": "24dd83ee03196731ed878fc320f5f481752aa83833b41ab19a7005f3a6e3cb6a"
     },
     {
-      "path": "assets/housing9-b-20261117-88406c78.png",
-      "bytes": 1465106,
-      "sha256": "88406c7891da7c99345e92916c5cf94648cba96c1671daf341b7fad1d02909ed"
+      "path": "assets/housing9-b-20261118-d12f5470.png",
+      "bytes": 1465425,
+      "sha256": "d12f54709b7a12911cb27488eb50ce28393e2855c93c9df88d13bc664a63fbe5"
     },
     {
-      "path": "assets/spread-508068-sh-20261117-d93b3b1e.png",
-      "bytes": 553122,
-      "sha256": "d93b3b1e1a362b72505eba9d368efcc2ce28b8cf450a52b58ae4ccbbb13a4f01"
+      "path": "assets/spread-508068-sh-20261118-1cb243d6.png",
+      "bytes": 552316,
+      "sha256": "1cb243d66cc8c2d835e5b9f48995068c2a88cf2bd0e0a89c99421a20501df389"
     },
     {
-      "path": "assets/spread-180501-sz-20261117-5643d436.png",
-      "bytes": 531808,
-      "sha256": "5643d436d32a716d4f61804e3a2f1ace1bb5a5ebe0d6b34e3de51342f2bceedd"
+      "path": "assets/spread-180501-sz-20261118-fea3f65e.png",
+      "bytes": 532340,
+      "sha256": "fea3f65ea4ef2604c5e72ab905c3830543d5450ac95c715b3cd9ea7cb20c8be5"
     },
     {
-      "path": "assets/spread-508077-sh-20261117-4e5607e7.png",
-      "bytes": 507148,
-      "sha256": "4e5607e757afbb24f9796317f7448506e6c616f81ef8dd96e4c89f46a6a4b45e"
+      "path": "assets/spread-508077-sh-20261118-b00dd1cf.png",
+      "bytes": 507871,
+      "sha256": "b00dd1cf01518c9f9b61b58b3c580ab68c40a06f0f41d72b504c1aba1e82c05b"
     },
     {
-      "path": "assets/spread-180502-sz-20261117-4fb3e5e4.png",
-      "bytes": 501188,
-      "sha256": "4fb3e5e44df11288b3b551b73ca5103d140952557580a58cadcd56f1861411c9"
+      "path": "assets/spread-180502-sz-20261118-63810bd6.png",
+      "bytes": 502039,
+      "sha256": "63810bd6bbdde9b0d5aeafc06cc063041daadff64788c0db860a2f6e10105829"
     },
     {
-      "path": "assets/spread-508058-sh-20261117-42817391.png",
-      "bytes": 545224,
-      "sha256": "428173915f9de6d76019560d553084081753d9bb3d52dd768c71aa5376690484"
+      "path": "assets/spread-508058-sh-20261118-bd6e7816.png",
+      "bytes": 544924,
+      "sha256": "bd6e78160ae0b015d56709afd62277c1cee10f02af5dcf7fadf2593a74222157"
     },
     {
-      "path": "assets/spread-508085-sh-20261117-403db68a.png",
-      "bytes": 414044,
-      "sha256": "403db68a14c4bd7e55f65b8afc26f9bd32f52d09e02a0e597a052a343000b6f6"
+      "path": "assets/spread-508085-sh-20261118-fe07b5ef.png",
+      "bytes": 415297,
+      "sha256": "fe07b5ef11dc3e961f1b5e6150835b82cd98bd18995658a737dc1b561bf94728"
     },
     {
-      "path": "assets/spread-508031-sh-20261117-8212a72f.png",
-      "bytes": 519441,
-      "sha256": "8212a72fd3a157f51d7123e54dfad1f0089cc06d6657f43ec79badf68daea26c"
+      "path": "assets/spread-508031-sh-20261118-ede795b3.png",
+      "bytes": 519370,
+      "sha256": "ede795b3ae6fa7a5948ff7c21b0ca67cbc99c6dc93cbd6b7f5dbfd3a4facc4b8"
     }
   ]
 }
